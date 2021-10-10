@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AnggotaRequest;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 
@@ -34,20 +35,9 @@ class AppController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnggotaRequest $request)
     {
-        $request->validate([
-            'nomor_induk' => 'required',
-            'nama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'ranting_latihan' => 'required',
-            'ikat_pinggang' => 'required',
-            'jabatan' => 'required'
-        ],
-        ['required' => 'Bagian :attribute harus diisi!']); //ini dari attribut name dari form
+        $request->validate($request, $request->rules(), $request->messages()); //ini dari attribut name dari form
 
         Anggota::create([
             'nomor_induk' => $request->nomor_induk, 
