@@ -37,19 +37,7 @@ class AppController extends Controller
      */
     public function store(AnggotaRequest $request)
     {
-        $request->validate($request, $request->rules(), $request->messages()); //ini dari attribut name dari form
-
-        Anggota::create([
-            'nomor_induk' => $request->nomor_induk, 
-            'nama' => $request->nama, 
-            'tempat_lahir' => $request->tempat_lahir, 
-            'tanggal_lahir' => $request->tanggal_lahir, 
-            'jenis_kelamin' => $request->jenis_kelamin, 
-            'alamat' => $request->alamat, 
-            'ranting_latihan' => $request->ranting_latihan, 
-            'ikat_pinggang' => $request->ikat_pinggang, 
-            'jabatan' => $request->jabatan
-        ]);
+        Anggota::create($request->all());
 
         return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil ditambah!');
     }
@@ -84,26 +72,10 @@ class AppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnggotaRequest $request, $id)
     {
-        $data['anggotas'] = Anggota::findOrFail($id);
-
-        $request->validate([
-            'nomor_induk' => 'required',
-            'nama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'alamat' => 'required',
-            'ranting_latihan' => 'required',
-            'ikat_pinggang' => 'required',
-            'jabatan' => 'required'
-        ],
-        ['required' => 'Bagian :attribute harus diisi!']); //ini dari attribut name dari form
-
         $data['anggotas']->update($request->all());
 
-        //dd(Anggota::find($id));
         return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil diubah!');
     }
 
