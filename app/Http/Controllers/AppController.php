@@ -73,7 +73,7 @@ class AppController extends Controller
      */
     public function edit($id)
     {
-        $data['anggotas'] = Anggota::find($id);
+        $data['anggotas'] = Anggota::findOrFail($id);
         return view('edit', $data);
     }
 
@@ -86,7 +86,7 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data['anggotas'] = Anggota::find($id);
+        $data['anggotas'] = Anggota::findOrFail($id);
 
         $request->validate([
             'nomor_induk' => 'required',
@@ -115,7 +115,7 @@ class AppController extends Controller
      */
     public function destroy($id)
     {
-        $anggota = Anggota::find($id);
+        $anggota = Anggota::findOrFail($id);
         $anggota->delete();
 
         return redirect()->route('anggota.index')->with('success', 'Data Anggota berhasil dihapus!');
