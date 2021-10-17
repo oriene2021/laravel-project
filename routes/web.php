@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Anggota;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $data['anggotas'] = Anggota::paginate(4); //anggota = ke view
-    return view('app', $data);
+    return view('welcome');
 });
 
-Route::resource('anggota', 'AppController'); // anggota = route nya untuk button
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::view('/sample', 'sample');
+require __DIR__.'/auth.php';
