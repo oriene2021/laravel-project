@@ -118,7 +118,7 @@
 								</select>
 							</div>
 							<div class="flex justify-end col-span-3 space-x-1">
-								<a href="{{ route('anggota.index') }}" class="mt-3">
+								<a href="{{ route('dashboard') }}" class="mt-3">
 									<button type="button" class="btn btn-sm border-0 bg-red-500 hover:bg-red-600 rounded-lg text-white mr-1"> Batal </button>
 								</a>
 								<button class="btn btn-sm mt-3 mb-1 right-0  border-0 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-white">Simpan</button>

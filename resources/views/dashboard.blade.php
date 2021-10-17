@@ -121,7 +121,7 @@
                                 {{-- End of Data Table --}}
                             </tbody>
                         </table>
-                        {{ $anggotas->links('layouts/pagination') }}
+                        {{ $anggotas->links('components/pagination') }}
                     </div>
                 </div>
             </div>
