@@ -16,7 +16,7 @@ class AppController extends Controller
     public function index()
     {
         $data['anggotas'] = Anggota::paginate(4); //data_anggota untuk ditampilkan ke view
-        return view('app', $data);
+        return view('dashboard', $data);
     }
 
     /**
