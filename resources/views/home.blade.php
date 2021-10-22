@@ -20,7 +20,6 @@
                                 <th class="w-60 ">Ranting Latihan</th>
                                 <th class="w-36">Ikat Pinggang</th>
                                 <th class="w-60">Detail</th>
-                                <th class="w-40">Aksi</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 bg-white">
@@ -66,36 +65,6 @@
                                                     <td>{{ $anggota->jabatan }}</td>
                                                 </tr>
                                             </table>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="flex">
-                                        <a href="{{ route('anggota.edit', $anggota->id) }}">
-                                            <button type="button" class="btn btn-sm border-0 bg-yellow-500 hover:bg-yellow-600 rounded-lg text-white mr-2"> Ubah </button>
-                                        </a>
-                                        <div x-data="{ show: false }">
-                                            <button @click={show=true} type="button" class="btn btn-sm rounded-lg hover:bg-red-600 bg-red-500 border-0">Hapus</Button>
-                                            <div x-show="show" tabindex="0" class="absolute inset-0 text-gray-700" id="overlay">
-                                                <div  @click.away="show = false" class="z-50 relative mt-20 mx-auto max-w-md">
-                                                    <div class="bg-gray-100 max-w-sm px-3 py-3 rounded-xl ">
-                                                        <button @click={show=false} class="fill-current h-6 w-6 absolute right-0 top-0 m-6 font-3xl font-bold"></button>
-                                                        <h4 class="text-lg font-bold mb-2">Konfirmasi Hapus</h4>
-                                                        <div>
-                                                            <p>Data yang telah dihapus tidak bisa dikembalikan, yakin hapus data?</p>
-                                                        </div>
-                                                        <div class="mt-3 flex justify-end space-x-2">
-                                                            <button @click={show=false} type="button" class="btn btn-sm bg-gray-500 hover:bg-gray-600  border-0 rounded-lg ">Batal</button>
-                                                            <form action="{{ route('anggota.destroy', $anggota->id) }}" method="post">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="btn btn-sm border-0 bg-red-500 hover:bg-red-600 rounded-lg text-white">Hapus</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="z-40 overflow-auto inset-0  fixed bg-black opacity-50"></div>
-                                            </div>
                                         </div>
                                     </div>
                                 </td>
