@@ -19,16 +19,20 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('anggota', 'AppController');
+Route::middleware(['role:admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        $data['anggotas'] = Anggota::paginate(4);
+        return view('dashboard', $data);
+    })->name('dashboard');
+
+    Route::resource('anggota', 'AppController');
+});
 
 Route::get('/home', function () {
     $data['anggotas'] = Anggota::paginate(4); //anggota = ke view
     return view('home', $data);
 })->middleware(['role:user'])->name('home');
 
-Route::get('/dashboard', function () {
-    $data['anggotas'] = Anggota::paginate(4); //anggota = ke view
-    return view('dashboard', $data);
-})->middleware(['role:admin'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
