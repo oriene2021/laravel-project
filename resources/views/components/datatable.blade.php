@@ -1,5 +1,5 @@
-<div class="mb-4 mt-2 rounded-xl bg-white shadow-md">
-    <div class="overflow-hidden align-middle shadow-lg rounded-xl">
+<div class="mb-4 mt-2 rounded-xl bg-white">
+    <div class="overflow-hidden align-middle rounded-xl">
         <table class="table-auto w-full text-left">
             <thead class="text-blue-500 uppercase">
                 <tr>
