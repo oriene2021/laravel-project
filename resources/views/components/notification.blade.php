@@ -1,4 +1,3 @@
-{{-- Notification Toast --}}
 @if ($msg = Session::get('success'))
     <div class="alert-toast mt-3 mr-4 absolute right-0 md:w-full max-w-xs">
         <input type="checkbox" class="hidden" id="footertoast">
@@ -10,9 +9,7 @@
         </label>
     </div>
 @endif
-{{-- End of Notification Toast --}}
 
-{{-- Notification Toast Style --}}
 <style>
     /*Toast open/load animation*/
     .alert-toast {
