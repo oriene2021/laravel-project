@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
                 }
 
                 else {
-                    return redirect('/dashboard');
+                    return redirect()->intended('/dashboard');
                 }
             }
         }
